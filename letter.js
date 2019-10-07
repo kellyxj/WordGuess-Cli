@@ -7,7 +7,9 @@ function Letter(value) {
     this.check = function(guess) {
         if(this.value === guess) {
             this.guessed = true;
+            return true;
         }
+        return false;
     }
 }
 

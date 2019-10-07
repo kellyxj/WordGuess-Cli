@@ -6,17 +6,21 @@ function Word (string) {
         const letter = new Letter(string[i]);
         this.letterArray.push(letter);
     }
-    function display () {
+    this.display = function () {
         let output = "";
         for(const letter of this.letterArray) {
-            output += letter.display;
+            output += letter.display();
         }
         return output;
     }
-    function check (guess) {
+    this.check = function (guess) {
+        let correctGuess = false;
         for(const letter of this.letterArray) {
-            letter.check(guess);
+            if(letter.check(guess)) {
+                correctGuess = true;
+            }
         }
+        return correctGuess;
     }
 }
 
