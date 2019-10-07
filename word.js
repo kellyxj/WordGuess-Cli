@@ -6,6 +6,15 @@ function Word (string) {
         const letter = new Letter(string[i]);
         this.letterArray.push(letter);
     }
+    this.solved = function() {
+        let completed = true;
+        for(const letter of this.letterArray) {
+            if(!letter.guessed) {
+                completed = false;
+            }
+        }
+        return completed;
+    }
     this.display = function () {
         let output = "";
         for(const letter of this.letterArray) {
