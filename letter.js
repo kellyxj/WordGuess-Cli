@@ -10,3 +10,5 @@ function Letter(value) {
         }
     }
 }
+
+module.exports = Letter;
