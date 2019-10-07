@@ -1,4 +1,4 @@
-const word = require("./word.js");
+const Word = require("./word.js");
 const inquirer = require("inquirer");
 
 const dictionary = [
@@ -36,3 +36,23 @@ let currentWord = new Word(pickRandomWord());
 
 let guesses = 5;
 const lettersGuessed = [];
+
+function playAgain() {
+    inquirer.prompt([
+        {
+            type: "confirm",
+            message: "Would you like to play again?",
+            name: "playAgain"
+        }
+    ]).then(response => {
+        if(response.playAgain) {
+            guesses = 5;
+            currentWord = new Word(pickRandomWord());
+            lettersGuessed.splice(0,lettersGuessed.length);
+            userInput();
+        }
+        else {
+            console.log("Goodbye")
+        }
+    })
+}
